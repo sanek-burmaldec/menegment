@@ -1,0 +1,89 @@
+# timemenegmente.github.io
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Поради з тайм-менеджменту</title>
+<style>
+:root{ --bg:#f7fafc; --card:#ffffff; --accent:#2563eb; --muted:#6b7280; }
+body{ font-family:Inter, system-ui, -apple-system,Segoe UI, Roboto, "Helvetica Neue", Arial; margin:0; background:var(--bg); color:#111827; }
+.container{ max-width:900px; margin:48px auto; padding:24px; }
+header{ display:flex; align-items:center; justify-content:space-between; gap:16px; }
+h1{ margin:0; font-size:1.5rem; }
+nav a{ margin-left:12px; text-decoration:none; color:var(--muted); font-size:0.95rem }
+.card{ background:var(--card); border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(16,24,40,0.06); }
+.actions{ margin-top:16px; display:flex; gap:8px }
+button{ border:0; padding:10px 14px; border-radius:8px; cursor:pointer; font-weight:600 }
+.btn-primary{ background:var(--accent); color:#fff }
+.btn-ghost{ background:transparent; color:var(--muted) }
+footer{ margin-top:28px; text-align:center; color:var(--muted); font-size:0.9rem }
+pre{ background:#0f172a; color:#e6eef8; padding:12px; border-radius:8px; overflow:auto }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>Тайм-менеджмент</h1>
+<nav>
+<a href="#">Головна</a>
+<a href="#about">Поради</a>
+<a href="#contact">Контакти</a>
+</nav>
+</header>
+
+<main style="margin-top:18px">
+<section class="card">
+<h2 id="welcome">Ласкаво просимо!</h2>
+<p style="color:var(--muted)">Студентам часто не вистачає часу на навчання, роботу та відпочинок. На цьому сайті зібрано прості поради, які допоможуть краще планувати свій день.</p>
+<div class="actions">
+<button class="btn-primary" id="greetBtn">Порада дня</button>
+<button class="btn-ghost" id="showCode">Показати HTML-приклад</button>
+</div>
+<div id="output" style="margin-top:14px"></div>
+</section>
+
+<section class="card" style="margin-top:18px">
+<h3 id="about">Основні поради</h3>
+<ul style="color:var(--muted)">
+<li><strong>Плануйте день.</strong> Ввечері запишіть 3–5 головних завдань на завтра.</li>
+<li><strong>Техніка Pomodoro.</strong> 25 хвилин роботи, потім 5 хвилин перерви.</li>
+<li><strong>Розставляйте пріоритети.</strong> Спочатку робіть важливі та термінові справи.</li>
+<li><strong>Не відволікайтесь.</strong> Вимкніть сповіщення в телефоні на час навчання.</li>
+<li><strong>Відпочивайте.</strong> Спіть 7–8 годин на добу.</li>
+</ul>
+</section>
+
+<section class="card" style="margin-top:18px">
+<h3 id="contact">Контакти</h3>
+<p style="color:var(--muted)">Є запитання чи власні поради? Пишіть на пошту: 25patskan.oy@zltk.com.ua</p>
+<pre id="codePreview" style="display:none">&lt;!-- приклад: список справ --&gt;&#10;&lt;ul&gt;&#10;  &lt;li&gt;Зробити лабораторну&lt;/li&gt;&#10;  &lt;li&gt;Повторити лекцію&lt;/li&gt;&#10;&lt;/ul&gt;</pre>
+</section>
+</main>
+
+<footer>
+<small>Сторінку відкрито: <span id="now"></span></small>
+</footer>
+</div>
+
+<script>
+document.getElementById('now').textContent = new Date().toLocaleString();
+
+document.getElementById('greetBtn').addEventListener('click', function(){
+const tips = [
+'Починайте з найважчого завдання.',
+'Розбивайте великі завдання на маленькі кроки.',
+'Робіть перерви, щоб не втомлюватися.',
+'Плануйте завтрашній день ще сьогодні.'
+];
+const number = Math.floor(Math.random() * tips.length);
+document.getElementById('output').innerHTML = '<strong>Порада дня:</strong> ' + tips[number];
+});
+
+document.getElementById('showCode').addEventListener('click', function(){
+const pre = document.getElementById('codePreview');
+pre.style.display = pre.style.display === 'none' ? 'block' : 'none';
+});
+</script>
+</body>
+</html>
